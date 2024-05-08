@@ -33,6 +33,10 @@ typedef struct {
     _Bool _is_alloc;
 } _z_bytes_t;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 _z_bytes_t _z_bytes_empty(void);
 inline static _Bool _z_bytes_check(_z_bytes_t value) { return value.start != NULL; }
 int8_t _z_bytes_init(_z_bytes_t *bs, size_t capacity);
@@ -49,5 +53,9 @@ _Bool _z_bytes_is_empty(const _z_bytes_t *bs);
 _Bool _z_bytes_eq(const _z_bytes_t *left, const _z_bytes_t *right);
 void _z_bytes_clear(_z_bytes_t *bs);
 void _z_bytes_free(_z_bytes_t **bs);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* ZENOH_PICO_COLLECTIONS_BYTES_H */
